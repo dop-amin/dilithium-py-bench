@@ -388,9 +388,7 @@ class Dilithium:
         h = self._unpack_h(h_bytes)
         return c_tilde, z, h
         
-    def keygen(self):
-        # Random seed
-        zeta = self.random_bytes(32)
+    def keygen(self, zeta):
         
         # Expand with an XOF (SHAKE256)
         seed_bytes = self._h(zeta, 128)
