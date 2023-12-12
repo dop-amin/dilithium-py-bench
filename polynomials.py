@@ -1,6 +1,6 @@
 import random
 from copy import deepcopy
-from utils import *
+from .utils import *
 
 class PolynomialRing:
     """

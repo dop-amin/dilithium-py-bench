@@ -1,10 +1,10 @@
 import os
 
-from polynomials import *
-from modules import *
-from shake_wrapper import Shake128, Shake256
-from utils import *
-from ntt_helper import NTTHelperDilithium
+from .polynomials import *
+from .modules import *
+from .shake_wrapper import Shake128, Shake256
+from .utils import *
+from .ntt_helper import NTTHelperDilithium
 
 try:
     from aes256_ctr_drbg import AES256_CTR_DRBG
