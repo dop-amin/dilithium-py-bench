@@ -422,7 +422,7 @@ class Dilithium:
         sk = self._pack_sk(rho, K, tr, s1, s2, t0)
         return pk, sk
         
-    def sign(self, sk_bytes, m, rnd=None):
+    def sign(self, sk_bytes, m, deterministic: bool = False):
         # unpack the secret key
         rho, K, tr, s1, s2, t0 = self._unpack_sk(sk_bytes)
         
@@ -432,9 +432,14 @@ class Dilithium:
         # Set seeds and nonce (kappa)
         mu = self._h(tr + m, 64)
         kappa = 0
-        if rnd is None:
+
+        if deterministic:
             # deterministic signing
             rnd = b"\x00"*32  # RNDBYTES
+        else:
+            # hedged signing
+            rnd = self.random_bytes(32)
+
         rho_prime = self._h(K + rnd + mu, 64)
         
         # Precompute NTT representation

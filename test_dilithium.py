@@ -175,7 +175,7 @@ class TestKnownTestValuesDilithium(unittest.TestCase):
             
             # Ensure that a generated signature matches
             # the one extracted from the KAT
-            sig = Dilithium.sign(sk, msg)
+            sig = Dilithium.sign(sk, msg, deterministic=True)
             self.assertEqual(sig, sig_KAT)
 
             # Finally, make sure that the signature is
