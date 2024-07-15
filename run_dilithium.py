@@ -5,7 +5,7 @@
 import sys
 import argparse
 
-sys.path.append('/home/amin/Documents/opentitan/')
+sys.path.append('/PATH/TO/OPENTITAN/REPO/')
 
 from sw.otbn.crypto.tests.dilithiumpy_otbn import test_dilithium
 from hw.ip.otbn.util import otbn_sim_py_shared
